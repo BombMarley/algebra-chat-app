@@ -101,7 +101,7 @@
 
 .Message-content > .text {
   padding: 4px 50px;
-  max-width: 400px;
+  max-width: 45vw;
   margin: 0;
   border: solid;
   border-color: #22053e;
@@ -112,6 +112,7 @@
   display: inline-block;
   box-shadow: 0 0 5px #C56E2F;
   font-size: 14px;
+  word-wrap: break-word;
 
 }
 
