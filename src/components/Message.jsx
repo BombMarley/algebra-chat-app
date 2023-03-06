@@ -1,26 +1,15 @@
 function Message({ messages, currentMember }) {
   
   function renderMessage(message) {
-    const { data, id, member } = message;
+    const { data, id, member, timestamp } = message;
     const className =
       member.clientData.name === currentMember.name
         ? "Messages-message currentMember"
         : "Messages-message";
-    const today = new Date();
-    const todayDS = today.toDateString();
-    
-    const addZero = (i) => {
-      if (i < 10) {
-        i = "0" + i;
-      }
-      return i;
-    };
-    
-    let h = addZero(today.getHours());
-    let m = addZero(today.getMinutes());
-    // let s = addZero(today.getSeconds());
+    const messageTime = new Date(timestamp * 1000).toLocaleTimeString();
+    const messageDate = new Date(timestamp * 1000).toDateString();
+    console.log(timestamp);
   
-
     return (
       <li className={className} key={id}>
         <span
@@ -29,12 +18,10 @@ function Message({ messages, currentMember }) {
         />
         <div className="Message-content">
           <div className="username">{member.clientData.name}</div>
-          <div className="date-content">{todayDS}</div>
+          <div className="date-content">{messageDate}</div>
           <div className="text">
             {data}
-            <span className="time-content">
-              {h}:{m}
-            </span>
+            <span className="time-content">{messageTime}</span>
           </div>
         </div>
       </li>
