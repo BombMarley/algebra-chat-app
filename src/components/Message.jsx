@@ -8,7 +8,6 @@ function Message({ messages, currentMember }) {
         : "Messages-message";
     const messageTime = new Date(timestamp * 1000).toLocaleTimeString();
     const messageDate = new Date(timestamp * 1000).toDateString();
-    console.log(timestamp);
   
     return (
       <li className={className} key={id}>
